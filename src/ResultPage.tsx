@@ -11,28 +11,35 @@ const Container = styled.div<IResult>`
   height: 100vh;
   position: fixed;
   transition: top 1.5s ease-in-out;
+  padding: 8%;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+`;
+
+const Title = styled.h2`
+  font-size: 4rem;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+`;
+
+const Answer = styled.div`
+  display: flex;
+`;
+
+const AnswerWord = styled.h2`
+  font-size: 4.5rem;
+  width: 7.5rem;
+  height: 7.5rem;
+  font-weight: 700;
+  margin-right: 1.25rem;
+  background-color: #539165;
+  border-radius: 0.9375rem;
+  display: flex;
   justify-content: center;
-  h1 {
-    font-size: 5vw;
-    margin-bottom: 3vw;
-  }
-  div {
-    display: flex;
-    span {
-      font-size: 7.5vw;
-      width: 7vw;
-      height: 7vw;
-      font-weight: 700;
-      margin-right: 1vw;
-      background-color: #539165;
-      text-align: center;
-      vertical-align: center;
-    }
-  }
+  align-items: center;
 `;
 
 const rotationAni = keyframes`
@@ -41,19 +48,24 @@ const rotationAni = keyframes`
 `;
 
 const Button = styled.button`
-  margin-top: 4vw;
+  margin-top: 3.75rem;
   border: none;
   color: white;
   background-color: transparent;
+
   cursor: pointer;
-  font-size: 2.5vw;
   span {
     display: block;
-    font-size: 5vw;
+    font-size: 3rem;
     &:hover {
       animation: ${rotationAni} 2s linear infinite;
     }
   }
+`;
+
+const Restart = styled.p`
+  font-size: 1.5rem;
+  font-weight: 500;
 `;
 
 const refreshPage = () => {
@@ -64,20 +76,20 @@ const ResultPage = ({ result }: IResult) => {
   const answer = useRecoilValue(answerState);
   return (
     <Container result={result}>
-      <h1>{result === STATUS.WIN ? "GOOD !!!" : "So Close..."}</h1>
-      <h1>The Answer is...</h1>
-      <div>
-        <span>{answer[0]?.toUpperCase()}</span>
-        <span>{answer[1]?.toUpperCase()}</span>
-        <span>{answer[2]?.toUpperCase()}</span>
-        <span>{answer[3]?.toUpperCase()}</span>
-        <span>{answer[4]?.toUpperCase()}</span>
-      </div>
+      <Title>{result === STATUS.WIN ? "GOOD !!!" : "So Close..."}</Title>
+      <Title>The Answer is...</Title>
+      <Answer>
+        <AnswerWord>{answer[0]?.toUpperCase()}</AnswerWord>
+        <AnswerWord>{answer[1]?.toUpperCase()}</AnswerWord>
+        <AnswerWord>{answer[2]?.toUpperCase()}</AnswerWord>
+        <AnswerWord>{answer[3]?.toUpperCase()}</AnswerWord>
+        <AnswerWord>{answer[4]?.toUpperCase()}</AnswerWord>
+      </Answer>
       <Button onClick={refreshPage}>
         <span>
           <FontAwesomeIcon icon={faRotateRight}></FontAwesomeIcon>
         </span>
-        <p>Restart</p>
+        <Restart>Restart</Restart>
       </Button>
     </Container>
   );

@@ -9,12 +9,11 @@ import ResultPage from "./ResultPage";
 import Keyboard from "./components/Keyboard";
 
 const Container = styled.div`
-  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  padding: 4%;
 `;
 
 function App() {
@@ -22,9 +21,7 @@ function App() {
   const isFinished = useRecoilValue(isFinishState);
 
   const getWord = async () => {
-    const { data } = await axios(
-      "https://random-word-api.herokuapp.com/word?length=5"
-    );
+    const { data } = await axios("https://random-word-api.herokuapp.com/word?length=5");
     setAnswer(data[0]);
   };
 

@@ -3,16 +3,14 @@ import styled from "styled-components";
 import { historyState } from "../atoms";
 
 const Container = styled.div`
-  max-width: 900px;
-  margin: 0;
-  padding-top: 5vh;
+  margin-top: 3.125rem;
 `;
 
 const Row = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30vw;
+  width: 31.25rem;
 `;
 
 const Cell = styled.div<IColor>`
@@ -21,13 +19,13 @@ const Cell = styled.div<IColor>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3vw;
-  height: 3vw;
-  border-radius: 0.5vw;
-  font-size: 1vw;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 0.625rem;
+  font-size: 1.125rem;
   color: #12121b;
-  font-weight: 600;
-  margin: 2px;
+  font-weight: 500;
+  margin: 0.125rem;
   cursor: pointer;
 `;
 
@@ -47,24 +45,14 @@ const Keyboard = () => {
     <Container>
       <Row>
         {firstRow.map((element) => (
-          <Cell
-            key={element}
-            bgcolor={
-              historySet.includes(element.toLowerCase()) ? "gray" : "#c4cbdd"
-            }
-          >
+          <Cell key={element} bgcolor={historySet.includes(element.toLowerCase()) ? "gray" : "#c4cbdd"}>
             {element}
           </Cell>
         ))}
       </Row>
       <Row>
         {secondRow.map((element) => (
-          <Cell
-            key={element}
-            bgcolor={
-              historySet.includes(element.toLowerCase()) ? "gray" : "#c4cbdd"
-            }
-          >
+          <Cell key={element} bgcolor={historySet.includes(element.toLowerCase()) ? "gray" : "#c4cbdd"}>
             {element}
           </Cell>
         ))}
@@ -74,12 +62,7 @@ const Keyboard = () => {
           backspace
         </Cell>
         {thirdRow.map((element) => (
-          <Cell
-            key={element}
-            bgcolor={
-              historySet.includes(element.toLowerCase()) ? "gray" : "#c4cbdd"
-            }
-          >
+          <Cell key={element} bgcolor={historySet.includes(element.toLowerCase()) ? "gray" : "#c4cbdd"}>
             {element}
           </Cell>
         ))}

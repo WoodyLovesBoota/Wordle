@@ -4,14 +4,15 @@ const Input = styled.input.attrs({
   maxLength: 1,
   required: true,
 })<IColor>`
-  width: 4vw;
-  height: 4vw;
-  border-radius: 1vw;
-  margin: 0.4vw 0.2vw;
+  width: 4.375rem;
+  height: 4.375rem;
+  border-radius: 1.125rem;
+  margin: 0.3125rem 0.1875rem;
   border: none;
   text-align: center;
   vertical-align: center;
-  font-size: 5vw;
+  font-size: 3.5rem;
+  font-weight: 600;
   color: white;
   text-transform: uppercase;
   transition: background-color 1s ease-in-out;
